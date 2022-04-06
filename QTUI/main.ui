@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainWindow</class>
+ <widget class="QMainWindow" name="mainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>790</width>
+    <height>536</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>批量盖章小程序</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{	
+	font-family:微软雅黑;
+	font-size:13px;
+	color: rgb(0, 0, 0);
+
+}
+
+*[myclass=in] {
+	border:none;
+	width:120px;
+	height:25px;
+}
+
+*[myclass=in]:hover{
+	border:1px solid #1d649c;
+	color: rgb(39, 86, 255);
+}
+
+*[myclass=in]:pressed
+{
+    background-color:qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69));
+    padding-left:2px;
+    padding-top:2px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="4,1">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,0,6,0">
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="styleSheet">
+           <string notr="true">QGroupBox { 
+    color: rgb(57, 67, 255) ;
+    font-size:14px;
+}</string>
+          </property>
+          <property name="title">
+           <string>信息输入</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,10,1,1">
+             <item>
+              <widget class="QPushButton" name="ButtonImageIn">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton
+{
+	border-radius: 3px;
+}
+</string>
+               </property>
+               <property name="text">
+                <string>待盖章图片路径</string>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+               <property name="myclass" stdset="0">
+                <string>in</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEditImageIn">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLineEdit
+{
+
+	height:25px;
+	border-radius: 3px;
+	background-color:rgb(207, 247, 255)
+}
+</string>
+               </property>
+               <property name="placeholderText">
+                <string>请输入待盖章的路径</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBoxImageIn">
+               <property name="styleSheet">
+                <string notr="true">QComboBox
+{
+	width: 35px;
+	height:25px;
+	border-radius: 3px;
+
+                   }</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="text">
+                <string>←待盖章宗地图格式</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,8,1,2">
+             <item>
+              <widget class="QPushButton" name="ButtonImageOut">
+               <property name="styleSheet">
+                <string notr="true">QPushButton
+{
+	border-radius: 3px;
+}
+</string>
+               </property>
+               <property name="text">
+                <string>盖章后存储路径</string>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+               <property name="myclass" stdset="0">
+                <string>in</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEditImageOut">
+               <property name="styleSheet">
+                <string notr="true">
+QLineEdit
+{
+
+	height:25px;
+	border-radius: 3px;
+	background-color:rgb(207, 247, 255)
+}
+</string>
+               </property>
+               <property name="placeholderText">
+                <string>存放章的路径(输出到原路径可不填)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBoxImageOut">
+               <property name="styleSheet">
+                <string notr="true">QComboBox
+{
+	width: 35px;
+	height:25px;
+	border-radius: 3px;
+
+                   }</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>←盖章后宗地图格式</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,9,1,1,1">
+             <item>
+              <widget class="QPushButton" name="ButtonZhangIn">
+               <property name="styleSheet">
+                <string notr="true">QPushButton
+{
+	border-radius: 3px;
+}
+</string>
+               </property>
+               <property name="text">
+                <string>存放章的路径 </string>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+               <property name="myclass" stdset="0">
+                <string>in</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEditZhangIn">
+               <property name="styleSheet">
+                <string notr="true">QLineEdit
+{
+
+	height:25px;
+	border-radius: 3px;
+	background-color:rgb(207, 247, 255)
+}
+</string>
+               </property>
+               <property name="placeholderText">
+                <string>请输入存放章的路径</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>附加</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEditFujia">
+               <property name="styleSheet">
+                <string notr="true">QLineEdit
+{
+
+	height:25px;
+	border-radius: 3px;
+}
+</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>到文件名</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QGroupBox" name="groupBox_3">
+            <property name="styleSheet">
+             <string notr="true">QGroupBox { 
+    color: rgb(57, 67, 255) ;
+    font-size:14px;
+}</string>
+            </property>
+            <property name="title">
+             <string>输出方式</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QRadioButton" name="radioButton">
+               <property name="text">
+                <string>输出到原路径</string>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">buttonGroup</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="radioButton_2">
+               <property name="text">
+                <string>输出到新路径</string>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">buttonGroup</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0,0">
+            <property name="spacing">
+             <number>15</number>
+            </property>
+            <property name="leftMargin">
+             <number>60</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>60</number>
+            </property>
+            <property name="bottomMargin">
+             <number>10</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="ButtonCheck">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+*:hover{	
+	font-family:微软雅黑;
+	font-size:15px;
+	color: rgb(0, 85, 255);
+	width:50px;
+	height:50px;
+
+}
+QPushButton:pressed
+{
+
+   padding-left:2px;
+    padding-top:2px;
+}
+*{	
+
+	font-family:微软雅黑;
+	font-size:15px;
+	color: rgb(255, 0, 0);
+	width:50px;
+	height:50px;
+}
+
+</string>
+              </property>
+              <property name="text">
+               <string>检查</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="ButtonRun">
+              <property name="styleSheet">
+               <string notr="true">QPushButton
+{
+	width: 65px;
+	height:30px;
+
+	border-radius: 3px;
+	background-color: #008cba;
+                   }
+
+QPushButton:pressed
+{
+
+   padding-left:2px;
+    padding-top:2px;
+}</string>
+              </property>
+              <property name="text">
+               <string>开始处理</string>
+              </property>
+              <property name="autoDefault">
+               <bool>false</bool>
+              </property>
+              <property name="default">
+               <bool>false</bool>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="ButtonClear">
+              <property name="styleSheet">
+               <string notr="true">QPushButton
+{
+	width: 65px;
+	height:30px;
+
+	border-radius: 3px;
+	background-color: #008cba;
+                   }
+
+QPushButton:pressed
+{
+
+   padding-left:2px;
+    padding-top:2px;
+}</string>
+              </property>
+              <property name="text">
+               <string>清空数据</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="styleSheet">
+         <string notr="true">*{	
+	font-family:微软雅黑;
+	font-size:12px;
+	color: rgb(0, 0, 0);
+}
+
+*[myclass=label]:hover{
+	color: rgb(170, 85, 127);
+}
+QGroupBox { 
+    color: rgb(57, 67, 255) ;
+    font-size:14px;
+
+
+}
+QLineEdit
+{
+	border-radius: 3px;
+
+}
+</string>
+        </property>
+        <property name="title">
+         <string>图片分辨率</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,0,0,0,0">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMinimumSize</enum>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="font">
+            <font>
+             <family>微软雅黑</family>
+             <pointsize>-1</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+             <kerning>true</kerning>
+            </font>
+           </property>
+           <property name="text">
+            <string>宗地图</string>
+           </property>
+           <property name="openExternalLinks">
+            <bool>false</bool>
+           </property>
+           <property name="mycalss" stdset="0">
+            <string>label</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditZongdi">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>宗地总图</string>
+           </property>
+           <property name="mycalss" stdset="0">
+            <string>label</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditZongdizongtu">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>权籍_纵</string>
+           </property>
+           <property name="mycalss" stdset="0">
+            <string>label</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditQuanjiZong">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>权籍_横</string>
+           </property>
+           <property name="mycalss" stdset="0">
+            <string>label</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditQuanjiHeng">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_9">
+           <property name="text">
+            <string>界址点</string>
+           </property>
+           <property name="mycalss" stdset="0">
+            <string>label</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditJiezhidian">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTextBrowser" name="textBrowser">
+      <property name="minimumSize">
+       <size>
+        <width>696</width>
+        <height>134</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextBrowser	
+{
+	border-radius: 7px;
+	background-color:rgb(207, 247, 255)
+}</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>790</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="actionOpen"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="action_help"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>关于</string>
+    </property>
+    <addaction name="action_banben"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_help">
+   <property name="text">
+    <string>使用说明</string>
+   </property>
+  </action>
+  <action name="actionabout">
+   <property name="text">
+    <string>about</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>删除'拷贝'文件</string>
+   </property>
+  </action>
+  <action name="action_banben">
+   <property name="text">
+    <string>版本说明</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>
